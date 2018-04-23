@@ -1,21 +1,49 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container-fluid loginPage">
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <mz-card class="dark-text" [hoverable]="true">
+        <mz-card-title>
+          Login with
+        </mz-card-title>
+        <mz-card-content>
+          <form class="form" [formGroup]="form" (submit)="login()">
+            <div class="col s12">
+              <mz-input-container>
+                <input mz-input formControlName="email" [label]="'Email'" [validate]="true" [dataError]="'Email is invalid'" [dataSuccess]="'Email is valid'"
+                  id="email-input" placeholder="Enter your email" type="email">
+              </mz-input-container>
+            </div>
+            <div class="col s12">
+              <mz-input-container>
+                <input mz-input formControlName="password" [label]="'Password'" [validate]="true" [dataError]="'Password is invalid'" [dataSuccess]="'Password is valid'"
+                  id="password-input" placeholder="Enter your password" type="password">
+              </mz-input-container>
+            </div>
+            <div class="col s12">
+              <button mz-button type="submit">
+                <i mz-icon-mdi mz-input-prefix [icon]="'owl'"></i>
+                Login
+              </button>
+            </div>
+          </form>
+          Or With <br>
+          <button mz-button type="submit" [float]="true" (click)="socialLogin('facebook')" style="background-color:#3b5998">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </button>
+          <button mz-button type="submit" [float]="true" (click)="socialLogin('google')" style="background-color:#ea4335">
+            <i class="fa fa-google" aria-hidden="true"></i>
+          </button>
+          <button mz-button type="submit" [float]="true" (click)="socialLogin('github')" style="background-color:#333">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </button>
+          <button mz-button type="submit" [float]="true" (click)="socialLogin('twitter')" style="background-color:#1da1f2">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </button>
+          <button  mz-button type="submit" [float]="true" (click)="logOut()" >Salir</button>
 
-<router-outlet></router-outlet>
+        </mz-card-content>
+      </mz-card>
+    </div>
+  </div>
+</div>
+
